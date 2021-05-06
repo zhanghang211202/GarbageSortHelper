@@ -85,9 +85,6 @@
 				</view>
 			</view>
 		</view>
-		<view >
-			<ad unit-id="adunit-060249bea9401e5c"></ad>
-		</view>
 		<levelPopup :show="popupShow" @hidePopup="hidePopup" :level="level" />
 		<share />
 	</view>

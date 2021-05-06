@@ -4,13 +4,12 @@
 		<scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" :scroll-into-view="'scroll-' + current"
 		 scroll-with-animation>
 			<view v-if="index!=0" class="cu-item padding-lr-xl" :class="{'text-green':res[index]==1&&index<=current,'text-red':res[index]==2&&index<=current}" v-for="(item,index) in 11" :key="index" :id="'scroll-' + index">
-				Question {{index}} <text class="num" :class="res[index]==2?'err':''" :data-index="index"></text>
+				<text class="num" :class="res[index]==2?'err':''" :data-index="index"></text>
 			</view>
 		</scroll-view>
 		<view :animation="animationData" class="main-panel">
 			<view class="quesion-panel">
 				<view class="quesion-panel-item1">
-					<view class="quesion-panel-text">{{current+1}}. </view>
 					<view class="quesion-panel-text"> {{questionLength>0?questionBanks[current].garbageName:"干电池"}}</view>
 				</view>
 				<view class="quesion-panel-item2">
@@ -73,6 +72,11 @@
 				questionLength:10
 			}
 		},
+		onload(){
+			for(var i = 0; i < this.questionLength; i++){
+				this.res[i] = 0;
+			}
+		},
 		onShow() {
 			let isLogin = getApp().globalData.isLogin
 			if(!isLogin){
@@ -80,9 +84,7 @@
 					url:'/pages/user/user'
 				})
 			}else{
-				for(var i = 0; i < this.questionLength; i++){
-					this.res[i] = 0;
-				}
+				
 				this.controlShow=true;
 				uni.showLoading({
 					title: "加载中..."
@@ -212,6 +214,5 @@
 	@import url("challenge.css");
 	@import url("../../static/colorui/main.css");
 	@import url("../../static/colorui/icon.css");
-	@import url("../../static/colorui/main.css");
 	@import url("../../static/colorui/animation.css");
 </style>

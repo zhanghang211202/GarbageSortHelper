@@ -1,5 +1,16 @@
 <template>
+	
 	<view>
+		<view class="cu-timeline" v-for="(item,index) in incorrectList">
+			<view class="cu-time">{{item.date}}</view>
+			<view class="cu-item">
+				<view class="content shadow-blur"  v-for="(res,idx) in item.list">
+					<text>{{res.garbageName}}</text>属于<text>{{garbageType[res.garbageType-1]}}</text>,我错误地选择成了 <text>{{garbageType[res.selectedType-1]}}</text>。
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- <view>
 		<view class="items">
 			<view class="item bold">垃圾名称</view>
 			<view class="item bold">正确种类</view>
@@ -10,7 +21,7 @@
 			<view class="item green">{{garbageType[item.garbageType-1]}}</view>
 			<view class="item red">{{garbageType[item.selectedType-1]}}</view>
 		</view>
-	</view>
+	</view> -->
 </template>
 
 <script>
@@ -40,6 +51,7 @@
 						console.log(_this.incorrectList)
 					},
 					complete() {
+						
 						uni.hideLoading()
 					}
 				})
@@ -49,5 +61,6 @@
 </script>
 
 <style>
-	@import url("incorrectList.css");
+	@import url("../../static/colorui/main.css");
+	@import url("../../static/colorui/icon.css");
 </style>

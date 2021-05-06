@@ -5,15 +5,18 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import top.miyamoto.entity.ChallengeDetail;
 import top.miyamoto.entity.ChallengeResult;
+import top.miyamoto.entity.IncorrectList;
 import top.miyamoto.service.ChallengeResultService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -38,17 +41,18 @@ public class ChallengeController {
             return null;
         }
         QueryWrapper<ChallengeResult> wrapper = new QueryWrapper<>();
-        List<ChallengeResult> all = challengeResultService.list(wrapper.eq("user_id",userId));
+        List<ChallengeResult> all = challengeResultService.list(wrapper.eq("user_id",userId).orderByDesc("times"));
         System.out.println(all);
-//        List<ChallengeDetail> incorrectList = new ArrayList<>();
-//        for(ChallengeResult result : all){
-//            incorrectList.addAll(
-//                    JSONObject.parseArray(result.getResult(),ChallengeDetail.class).stream()
-//                            .filter(d->d.getWhether()!=1)
-//                            .collect(Collectors.toList())
-//            );
-//        }
-        return R.ok(all);
+        List<IncorrectList> res = new ArrayList<>();
+        for(ChallengeResult result : all){
+            List<ChallengeDetail> incorrectList = JSONObject.parseArray(result.getResult(), ChallengeDetail.class).stream()
+                    .filter(d -> d.getWhether() != 1)
+                    .collect(Collectors.toList());
+            if(incorrectList.size()!=0){
+                res.add(new IncorrectList(result.getTimes(),incorrectList));
+            }
+        }
+        return R.ok(res);
     }
 
     @PostMapping
