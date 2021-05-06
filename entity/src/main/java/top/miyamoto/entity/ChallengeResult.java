@@ -1,5 +1,6 @@
 package top.miyamoto.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -34,7 +35,7 @@ public class ChallengeResult implements Serializable {
     private Integer score;
 
     private String result;
-
+    
     private Date times;
 
     private String userId;

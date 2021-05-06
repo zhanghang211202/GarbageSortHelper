@@ -39,15 +39,16 @@ public class ChallengeController {
         }
         QueryWrapper<ChallengeResult> wrapper = new QueryWrapper<>();
         List<ChallengeResult> all = challengeResultService.list(wrapper.eq("user_id",userId));
-        List<ChallengeDetail> incorrectList = new ArrayList<>();
-        for(ChallengeResult result : all){
-            incorrectList.addAll(
-                    JSONObject.parseArray(result.getResult(),ChallengeDetail.class).stream()
-                            .filter(d->d.getWhether()!=1)
-                            .collect(Collectors.toList())
-            );
-        }
-        return R.ok(incorrectList);
+        System.out.println(all);
+//        List<ChallengeDetail> incorrectList = new ArrayList<>();
+//        for(ChallengeResult result : all){
+//            incorrectList.addAll(
+//                    JSONObject.parseArray(result.getResult(),ChallengeDetail.class).stream()
+//                            .filter(d->d.getWhether()!=1)
+//                            .collect(Collectors.toList())
+//            );
+//        }
+        return R.ok(all);
     }
 
     @PostMapping
