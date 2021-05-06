@@ -1,0 +1,13 @@
+page{
+  background-color:rgba(166, 166, 166, 0.1);
+}
+.add{
+  margin: 0rpx auto;
+  border-radius: 16rpx;
+  background-color: #39b54a;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 500rpx;
+  bottom: 200rpx;
+}

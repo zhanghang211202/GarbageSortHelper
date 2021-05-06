@@ -1,0 +1,29 @@
+.items{
+	padding: 10rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.item{
+	border: 1vh solid #FFFFFF;
+	text-align: center;
+	width: 30%;
+	height: 50rpx;
+}
+.red{
+	background-color: #ff5500;
+	color: #000000;
+}
+.green{
+	background-color: #aaff7f;
+	color: #000000;
+}
+.grey{
+	background-color: #ebeeee;
+	color: #000000;
+}
+.bold{
+	font-weight: bold;
+}
+
