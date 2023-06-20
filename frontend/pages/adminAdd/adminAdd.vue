@@ -36,8 +36,6 @@
 						showCancel: false
 					})
 				}
-				console.log(this.name)
-				console.log(this.typePicker[this.typeIndex])
 				uni.request({
 					method:'POST',
 					url: this.serverUrl + "/admin/addQuestion",

@@ -30,7 +30,7 @@ public class QuestionBankController {
     @Autowired
     QuestionBankMapper questionBankMapper;
     @GetMapping("/randOne")
-    @ApiOperation(value = "从题库中选取随机的一种垃圾")
+    @ApiOperation(value = "从题库中选取一定数量的随机垃圾")
     public R qbRandOne(@RequestParam(required = false,name = "num") Integer num){
         if(StringUtils.isEmpty(num)) {
             num=1;

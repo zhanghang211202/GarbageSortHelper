@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "知识问答",
+  "usingComponents": {
+    "share": "/components/share"
+  }
+}

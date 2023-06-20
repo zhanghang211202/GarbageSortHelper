@@ -158,40 +158,69 @@
 					}
 				});
 			},
-			// 幻灯片 的点击跳转事件 start
+
 			navigateTo(skipUrl) {
 				uni.navigateTo({
 					url: '/pages/webview/webview?url=' + skipUrl
 				});
 			},
-			// 幻灯片 的点击跳转事件 end
+			
 			searchKeyword() {
 				let me = this;
-				if (!me.keyword) return;
-				uni.request({
-					url: me.serverUrl + "/search/uniname/" + me.keyword, 
-					success: (res) => {
-						console.log(res);
-						let data = res.data.data;
-						let uniOne = JSON.stringify(data.uni);
-						let results = JSON.stringify(data.results);
-						console.log(res.data.data)
-						uni.navigateTo({
-							url: `/pages/search/search?type=3&keyword=${me.keyword}&keywordList=${results}&uni=${uniOne}`
-						});
-					}
-				});
+				let isLogin = getApp().globalData.isLogin
+				if(!isLogin){
+					uni.switchTab({
+						url:'/pages/user/user'
+					})
+				}else{
+					uni.showLoading({
+						title: "搜索中"
+					})
+					if (!me.keyword) return;
+					uni.request({
+						url: me.serverUrl + "/search/uniname/" + me.keyword, 
+						success: (res) => {
+							console.log(res);
+							let data = res.data.data;
+							let uniOne = JSON.stringify(data.uni);
+							let results = JSON.stringify(data.results);
+							console.log(res.data.data)
+							uni.navigateTo({
+								url: `/pages/search/search?type=3&keyword=${me.keyword}&keywordList=${results}&uni=${uniOne}`
+							});
+						},
+						complete() {
+							uni.hideLoading()
+						}
+					});
+				}
+				
 			},
 			moveToRecord() {
-				uni.navigateTo({
-					url: `/pages/search/search?type=2`
-				});
+				let isLogin = getApp().globalData.isLogin
+				if(!isLogin){
+					uni.switchTab({
+						url:'/pages/user/user'
+					})
+				}else{
+					uni.navigateTo({
+						url: `/pages/search/search?type=2`
+					});
+				}
 			},
 			
 			moveToPhoto() {
-				uni.navigateTo({
-					url: `/pages/search/search?type=1`
-				});
+				let isLogin = getApp().globalData.isLogin
+				if(!isLogin){
+					uni.switchTab({
+						url:'/pages/user/user'
+					})
+				}else{
+					uni.navigateTo({
+						url: `/pages/search/search?type=1`
+					});
+				}
+				
 			},
 			
 			moveToClassify(index) {

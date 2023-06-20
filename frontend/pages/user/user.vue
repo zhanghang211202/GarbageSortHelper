@@ -59,10 +59,8 @@
 		methods: {
 			getUserInfo() {
 				var _this = this
-				console.log("进入getUserInfo")
-				
 				uni.getUserProfile({
-					desc: '测试',
+					desc: '登录',
 					success(res) {
 						console.log(res)
 						_this.isLogin = true
@@ -70,7 +68,7 @@
 						getApp().globalData.isLogin = true
 						getApp().globalData.userInfo = res.userInfo
 						uni.login({
-							desc: '测试',
+							desc: '登录',
 							success(res) {
 								let code = res.code
 								uni.request({

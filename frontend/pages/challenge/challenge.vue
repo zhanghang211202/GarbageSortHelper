@@ -1,16 +1,18 @@
 <template>
 	
 	<view class="content" v-if="controlShow">
-		<scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" :scroll-into-view="'scroll-' + current"
+		<scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" :scroll-into-view="'scroll-' + (current-1)"
 		 scroll-with-animation>
-			<view v-if="index!=0" class="cu-item padding-lr-xl" :class="{'text-green':res[index]==1&&index<=current,'text-red':res[index]==2&&index<=current}" v-for="(item,index) in 11" :key="index" :id="'scroll-' + index">
+			<view v-if="index!=0" class="cu-item padding-lr-xl" 
+			:class="{'text-green':res[index]==1&&index<=current,'text-red':res[index]==2&&index<=current}" 
+			v-for="(item,index) in 11" :key="index" :id="'scroll-' + index">
 				<text class="num" :class="res[index]==2?'err':''" :data-index="index"></text>
 			</view>
 		</scroll-view>
 		<view :animation="animationData" class="main-panel">
 			<view class="quesion-panel">
 				<view class="quesion-panel-item1">
-					<view class="quesion-panel-text"> {{questionLength>0?questionBanks[current].garbageName:"干电池"}}</view>
+					<view class="quesion-panel-text"> {{questionBanks.length==0?"干电池":questionBanks[current].garbageName}}</view>
 				</view>
 				<view class="quesion-panel-item2">
 					<view class="">属于哪种垃圾分类？</view>
@@ -91,7 +93,6 @@
 				})
 				console.log("size:"+this.questionBanks.length)
 				this.randTen();
-				uni.hideLoading();
 			}
 		},
 		methods: {
@@ -123,18 +124,22 @@
 			randTen() {
 				console.log("初始化")
 				if (this.questionBanks.length > 0 && this.current < 9) {
+					uni.hideLoading();
 					return false;
 				}
 				this.current = 0;
 				this.score = 0;
 				this.controlShow = true;
-				this.questionBanks = [];
 				uni.request({
 					url: this.serverUrl + '/qb/randOne?num=10',
 					success: (res) => {
 						console.log('随机是个'+res)
 						console.log(res.data.data);
 						this.questionBanks = res.data.data;
+						
+					},
+					complete() {
+						uni.hideLoading();
 					}
 				});
 			},

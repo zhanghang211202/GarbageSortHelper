@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/challenge/challengeResult",
+    "pages/search/search",
+    "pages/challenge/challenge",
+    "pages/more/more",
+    "pages/type/type",
+    "pages/webview/webview",
+    "pages/user/user",
+    "static/common/common",
+    "pages/incorrectList/incorrectList",
+    "pages/admin/admin",
+    "pages/adminList/adminList",
+    "pages/adminAdd/adminAdd",
+    "pages/gps/gps"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "GarbageSort Helper",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#fff"
+  },
+  "tabBar": {
+    "color": "#8F8F94",
+    "selectedColor": "#000000",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "static/tabBar/home.png",
+        "selectedIconPath": "static/tabBar/homeSelected.png"
+      },
+      {
+        "pagePath": "pages/type/type",
+        "text": "分类",
+        "iconPath": "static/tabBar/type.png",
+        "selectedIconPath": "static/tabBar/typeSelected.png"
+      },
+      {
+        "pagePath": "pages/gps/gps",
+        "text": "附近站点",
+        "iconPath": "static/tabBar/location.png",
+        "selectedIconPath": "static/tabBar/locationSelected.png"
+      },
+      {
+        "pagePath": "pages/challenge/challenge",
+        "text": "挑战赛",
+        "iconPath": "static/tabBar/challenge.png",
+        "selectedIconPath": "static/tabBar/challengeSelected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "用户",
+        "iconPath": "static/tabBar/user.png",
+        "selectedIconPath": "static/tabBar/userSelected.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "测试"
+    }
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

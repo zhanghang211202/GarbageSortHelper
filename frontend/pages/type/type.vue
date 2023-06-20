@@ -11,9 +11,6 @@
 				</scroll-view>
 			</view>
 			<view class="nav-right">
-				<!-- <view >
-					<ad unit-id="adunit-060249bea9401e5c"></ad>
-				</view> -->
 				<scroll-view scroll-y :style="'height:'+height+'px'" scroll-with-animation>
 					<view class="view-img">
 						<view>
@@ -117,7 +114,7 @@
 			console.log(getApp().globalData.typeid)
 		},
 		methods: {
-			showDeinsertAdtailGarbage(item) {
+			showDetailGarbage(item) {
 				this.detailShowObject = {
 					garbageType: item.garbageType,
 					keyword: item.garbageName,

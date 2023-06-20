@@ -15,98 +15,76 @@
 		{
 			"path": "pages/challenge/challenge",
 			"style": {
-				"navigationBarTitleText":"环保守卫者挑战赛"
+				"navigationBarTitleText": "知识问答"
 			}
 		},
-		
-		
-		
-		
-		
-		
-
-
-
 		{
 			"path": "pages/more/more",
 			"style": {}
 		},
-
-
-
-
-		
-
 		{
 			"path": "pages/type/type",
 			"style": {}
 		},
-
-		
 		{
 			"path": "pages/webview/webview",
 			"style": {}
+		}, 
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}, 
+		{
+			"path": "static/common/common",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, 
+		{
+			"path": "pages/incorrectList/incorrectList",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, 
+		{
+			"path": "pages/admin/admin",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, 
+		{
+			"path": "pages/adminList/adminList",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, 
+		{
+			"path": "pages/adminAdd/adminAdd",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/gps/gps",
+			"style": {}
 		}
-
-
-	    ,{
-            "path" : "pages/user/user",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "static/common/common",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/incorrectList/incorrectList",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/admin/admin",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/adminList/adminList",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/adminAdd/adminAdd",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "垃圾识别精灵",
+		"navigationBarTitleText": "GarbageSort Helper",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#fff"
 	},
@@ -133,6 +111,12 @@
 				"text": "分类",
 				"iconPath": "static/tabBar/type.png",
 				"selectedIconPath": "static/tabBar/typeSelected.png"
+			},
+			{
+				"pagePath": "pages/gps/gps",
+				"text": "附近站点",
+				"iconPath": "static/tabBar/location.png",
+				"selectedIconPath": "static/tabBar/locationSelected.png"
 			},
 			{
 				"pagePath": "pages/challenge/challenge",

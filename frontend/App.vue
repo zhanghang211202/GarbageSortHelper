@@ -4,7 +4,7 @@
 			typeid:1,
 			isLogin:false,
 			userInfo:"default",
-			userId:""
+			userId:"",
 		},
 		onLaunch: function() {
 			console.log('App Launch')

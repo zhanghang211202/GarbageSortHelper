@@ -37,6 +37,39 @@
 				uni.navigateTo({
 				  url: url
 				})
+			},
+			
+			uploadExcel(){
+				uni.showLoading({
+					title: "努力导入中..."
+				});
+				let me = this
+				wx.chooseMessageFile({
+					type: 'file',
+					success(res){
+						const tempFilePaths = res.tempFiles
+						console.log(res)
+						uni.uploadFile({
+							url: me.serverUrl+"/upload/excel",
+							filePath: tempFilePaths[0].path,
+							name: 'file',
+							success: (res) => {
+								console.log(res);
+								uni.showModal({
+									title: '提示',
+									content: '导入成功',
+									showCancel: false
+								})
+							},
+							fail: (res) => {
+								console.log(res)
+							},
+							complete: () => {
+								uni.hideLoading();
+							}
+						})
+					}
+				})
 			}
 		}
 	}
