@@ -5,10 +5,10 @@
 ![avatar](./imgs/login.png)
 
 ## Voice Search
-![avatar](./imgs/voice search.png)
+![avatar](./imgs/voice_search.png)
 
 ## Image Search
-![avatar](./imgs/image search.png)
+![avatar](./imgs/image_search.png)
 
 ## Contest
 ![avatar](./imgs/contest.png)
