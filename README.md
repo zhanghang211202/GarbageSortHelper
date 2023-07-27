@@ -2,7 +2,7 @@
 ![avatar](./imgs/functions.png)
 
 ## Login
-![avatar](./imgs/Login.png)
+![avatar](./imgs/login.png)
 
 ## Voice Search
 ![avatar](./imgs/voice search.png)
