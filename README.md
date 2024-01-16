@@ -3,7 +3,9 @@ GarbageSortHelper is a WeChat mini-program that enables users to classify garbag
 
 ## Skill Stack
 Frontend: uni-app(based on vue.js)
+
 Backend: Java(SpringBoot)
+
 Database: Mysql
 
 ## Functions Overview
