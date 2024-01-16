@@ -1,3 +1,5 @@
+# GarbageSortHelper
+
 ## Introduction
 GarbageSortHelper is a WeChat mini-program that simplifies garbage classification for users. It accepts text, images, or voice inputs and utilizes a machine-learning algorithm to assist in the sorting process.
 
