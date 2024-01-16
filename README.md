@@ -1,3 +1,7 @@
+Frontend: uni-app(based on vue.js)
+backend: Java(SpringBoot)
+Database: Mysql
+
 ## Functions
 ![avatar](./imgs/functions.png)
 
